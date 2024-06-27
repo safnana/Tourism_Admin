@@ -17,14 +17,11 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
         const data = await response.json();
 
         if (response.ok) {
-            // Redirect to the home page
             window.location.href = 'home.php';
         } else {
-            // Display an error alert
             showAlert('Invalid username or password');
         }
     } catch (error) {
-        // Display a general error alert
         showAlert('An error occurred. Please try again later.');
     }
 });
@@ -39,7 +36,6 @@ function showAlert(message) {
     `;
 }
 
-// script.js
 document.querySelectorAll('.nav-item').forEach(item => {
     item.addEventListener('click', () => {
         document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
@@ -48,7 +44,6 @@ document.querySelectorAll('.nav-item').forEach(item => {
 });
 
 $(document).ready(function () {
-    // Ambil data user, wisata, dan kuliner dari database
     $.ajax({
         url: 'home.php',
         type: 'GET',
@@ -89,10 +84,7 @@ $(document).ready(function () {
     });
 });
 
-// Fungsi untuk mengambil data wisata dari database dan menampilkannya
 function loadWisata() {
-    // Kode AJAX atau fungsi PHP untuk mengambil data wisata
-    // Contoh data sementara
     const wisataData = [
       {
         id_wisata: 1,
@@ -141,7 +133,6 @@ function loadWisata() {
     });
   }
   
-  // Panggil fungsi untuk memuat data wisata
   loadWisata();
 
 
