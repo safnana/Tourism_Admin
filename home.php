@@ -15,7 +15,7 @@ $query_pemesanan = "SELECT MONTH(tanggal) AS month, COUNT(*) AS total
                     WHERE YEAR(tanggal) = $tahun AND status = 'berhasil' 
                     GROUP BY MONTH(tanggal)";
 $result_pemesanan = $conn->query($query_pemesanan);
-$data_pemesanan = array_fill(1, 12, 0); //seharusnya array_fill bukan array
+$data_pemesanan = array_fill(1, 12, 0); 
 while ($row = $result_pemesanan->fetch_assoc()) {
     $data_pemesanan[intval($row['month'])] = intval($row['total']);
 }
@@ -25,10 +25,10 @@ $query_pendapatan = "SELECT MONTH(tanggal) AS month, SUM(total_harga) AS total
                      WHERE YEAR(tanggal) = $tahun AND status = 'berhasil' 
                      GROUP BY MONTH(tanggal)";
 $result_pendapatan = $conn->query($query_pendapatan);
-$data_pendapatan = array_fill(1, 12, 0); //seharusnya array_fill bukan array
+$data_pendapatan = array_fill(1, 12, 0); 
 while ($row = $result_pendapatan->fetch_assoc()) {
     $data_pendapatan[intval($row['month'])] = intval($row['total']);
-} //error pada penulisan int seharusnya intval
+} 
 
 $labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -263,7 +263,7 @@ $conn->close();
                         ticks: {
                             stepSize: 10,
                             maxTicksLimit: 5,
-                            padding: 10, //ini error kurang koma setelah 10
+                            padding: 10, 
                             callback: function(value, index, values) {
                                 return value;
                             }
@@ -272,7 +272,7 @@ $conn->close();
                             color: "rgb(234, 236, 244)",
                             zeroLineColor: "rgb(234, 236, 244)",
                             drawBorder: false,
-                            borderDash: [2], //ini error kurang koma
+                            borderDash: [2], 
                             zeroLineBorderDash: [2]
                         }
                     }],
